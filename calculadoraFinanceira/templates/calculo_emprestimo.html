@@ -1,0 +1,33 @@
+{% extends "layout_base.html" %}
+
+{% block titulo %}
+    Cálculo empréstimo - Calculadora Financeira
+{% endblock %}
+
+{% block conteudo %}
+
+    <h1>Cálculo empréstimo</h1>
+
+    {% if msg_error %}
+        <div class="alert alert-danger" role="alert">
+<!--            <p>Olá, {{ nome }}. </p>-->
+            <p>{{ msg_error }}</p>
+            <p>Por favor tente novamente.</p>
+        </div>
+    {% endif %}
+
+    <form action="{{ url_for('calculo_emprestimo', renda=renda) }}" method="post" class="row g-3">
+<!--        {% if msg_range_emprestimo %}-->
+            <p>{{ msg_range_emprestimo }}</p>
+<!--        {% endif %}-->
+        <div class="col-md-6">
+            <label for="valor_emprestimo" class="form-label">Informe o valor desejado do empréstimo: </label>
+            <input type="text" id="valor_emprestimo" name="valor_emprestimo" required class="form-control" >
+        </div>
+        <div class="col-md-6">
+            <label for="prazo" class="form-label" >Informe o prazo desejado (em meses): </label>
+            <input type="text" name="prazo" id="prazo" required class="form-control" >
+        </div>
+        <input type="submit" value="Enviar" class="btn btn-primary">
+    </form>
+{% endblock %}

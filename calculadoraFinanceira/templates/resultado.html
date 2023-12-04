@@ -1,0 +1,28 @@
+{% extends "layout_base.html" %}
+
+{% block titulo %}
+    Resultado - Calculadora Financeira
+{% endblock %}
+
+{% block conteudo %}
+
+    <h1>Resultado do calculo: </h1>
+
+    <div class="card text-center my-5">
+      <div class="card-header">
+<!--        Resultado do calculo:-->
+      </div>
+      <div class="card-body">
+        <p class="card-text"> Valor do emprestimo: R$ {{ valor_emprestimo }}</p>
+        <p class="card-text"> Prazo (em meses): {{ prazo }}</p>
+        <p class="card-text"> Taxa de juros aplicada: {{ '%.2f'|format(taxa_juros) }} % ao mês</p>
+        <p class="card-text"> Valor da parcela: R$ {{ '%.2f'|format(prestacao_mensal) }}</p>
+        <p class="card-text"> Custo Total do Empréstimo: R$ {{ '%.2f'|format(prestacao_mensal * prazo) }}</p>
+<!--          <a href="#" class="btn btn-primary">Go somewhere</a>-->
+      </div>
+      <div class="card-footer text-body-secondary">
+<!--        2 days ago-->
+      </div>
+    </div>
+
+{% endblock %}
