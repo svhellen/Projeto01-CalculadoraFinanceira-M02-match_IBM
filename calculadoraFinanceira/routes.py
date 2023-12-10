@@ -28,7 +28,7 @@ def validacao_renda():
 def calculo_emprestimo(renda):
     minimo_emprestimo = renda / 4
     limite_emprestimo = renda * 20
-    msg_range_emprestimo =  f"Insira um valor entre {minimo_emprestimo} e {limite_emprestimo}."
+    msg_range_emprestimo = f"Insira um valor entre {minimo_emprestimo} e {limite_emprestimo}."
 
     if request.method == 'POST':
         try:
@@ -37,7 +37,7 @@ def calculo_emprestimo(renda):
             # e talvez definir limite pro valor da prestacao nao ser maior q a renda
             prazo = int(request.form['prazo'])
 
-            if minimo_emprestimo < valor_emprestimo:
+            if minimo_emprestimo <= valor_emprestimo:
                 if valor_emprestimo <= limite_emprestimo:
                     taxa_juros = 0.05
                     prestacao_mensal = (valor_emprestimo * taxa_juros) / (1 - (1 + taxa_juros) ** -prazo)
